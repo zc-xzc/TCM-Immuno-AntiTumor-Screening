@@ -1,0 +1,5 @@
+﻿发现排名,中药成分名称,DrugBank ID,预测抗癌得分,关联免疫通路,原始证据/文件名
+1,Berberine,DB04115,3.34,无,txgnn_prediction.pkl
+2,Kaempferol,DB04461,3.1833,无,txgnn_prediction.pkl
+3,Hesperidin,DB04703,2.9717,无,txgnn_prediction.pkl
+4,Fisetin,DB04495,2.9218,无,txgnn_prediction.pkl

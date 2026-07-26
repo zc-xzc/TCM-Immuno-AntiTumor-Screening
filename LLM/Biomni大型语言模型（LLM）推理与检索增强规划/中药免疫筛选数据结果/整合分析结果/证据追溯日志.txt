@@ -1,0 +1,25 @@
+# 中药鼻咽癌双效筛选证据追溯日志
+生成时间: 2026-02-09 17:31:23
+================================================================================
+
+1. 实体对齐
+映射表来源: txgnn_name_mapping.pkl
+目标中药及其DrugBank ID: {'Genistein': 'DB01645', 'Resveratrol': 'DB02709', 'Curcumin': 'DB00291', 'Quercetin': 'DB04224', 'Glycyrrhizic acid': 'DB13751', 'Arbutin': 'DB11348', 'Rhein': 'DB13293', 'Capsaicin': 'DB06774'}
+
+2. 疾病关联筛选
+预测数据来源: txgnn_prediction.pkl
+目标疾病: nasopharyngeal carcinoma 及其同源条目
+找到的疾病条目数量: 10
+疾病条目: nasopharyngeal carcinoma, susceptibility to; nasopharyngeal teratoma; nasopharyngeal carcinoma; juvenile nasopharyngeal angiofibroma (disease); nasopharyngeal diphtheria; dandy-walker malformation with nasopharyngeal teratoma and diaphragmatic hernia; nasopharyngeal type undifferentiated carcinoma; nasopharyngeal disease; nasopharyngeal neoplasm; nasopharyngeal squamous cell carcinoma
+
+3. 预测结果
+所有目标中药在txgnn_prediction.pkl中均无鼻咽癌预测数据
+未找到任何预测数据的原因: 目标中药的DrugBank ID不在txgnn_prediction.pkl的预测结果中
+
+4. 免疫激活验证
+msigdb_human_c2_curated_geneset.parquet: 由于缺少pyarrow和fastparquet库，无法加载
+affinity_capture-ms.parquet: 由于缺少pyarrow和fastparquet库，无法加载
+
+5. 最终结论
+在当前数据集中，未找到目标中药对鼻咽癌的预测数据
+所有目标中药的鼻咽癌预测得分均标记为'无特定疾病预测数据'
