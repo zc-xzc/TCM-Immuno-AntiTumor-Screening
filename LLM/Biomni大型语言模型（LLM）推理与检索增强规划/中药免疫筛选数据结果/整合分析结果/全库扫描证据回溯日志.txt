@@ -1,0 +1,51 @@
+# 全库扫描证据回溯日志
+生成时间: 2026-02-09 17:43:06
+================================================================================
+
+1. 全库实体“身份识别”
+识别出的潜在中药成分数量: 4
+
+潜在中药成分列表:
+  - DB04703: Hesperidin (来源: 已知中药成分, 依据: 药物为已知的中药/天然产物成分)
+  - DB04115: Berberine (来源: 已知中药成分, 依据: 药物为已知的中药/天然产物成分)
+  - DB04461: Kaempferol (来源: 已知中药成分, 依据: 药物为已知的中药/天然产物成分)
+  - DB04495: Fisetin (来源: 已知中药成分, 依据: 药物为已知的中药/天然产物成分)
+
+2. 鼻咽癌关联强度全量扫描
+找到的鼻咽癌相关疾病数量: 10
+
+鼻咽癌相关疾病列表:
+  - nasopharyngeal carcinoma, susceptibility to
+  - nasopharyngeal teratoma
+  - nasopharyngeal carcinoma
+  - juvenile nasopharyngeal angiofibroma (disease)
+  - nasopharyngeal diphtheria
+  - dandy-walker malformation with nasopharyngeal teratoma and diaphragmatic hernia
+  - nasopharyngeal type undifferentiated carcinoma
+  - nasopharyngeal disease
+  - nasopharyngeal neoplasm
+  - nasopharyngeal squamous cell carcinoma
+
+初步筛选结果 (Top 100):
+  1. DB04115: Berberine (平均得分: 3.34)
+    - nasopharyngeal carcinoma, susceptibility to: 3.652163505554199
+    - nasopharyngeal carcinoma: 4.452149868011475
+    - juvenile nasopharyngeal angiofibroma (disease): 2.20151686668396
+    - nasopharyngeal diphtheria: 2.3902759552001953
+    - nasopharyngeal type undifferentiated carcinoma: 3.8471951484680176
+    - nasopharyngeal neoplasm: 3.091887950897217
+    - nasopharyngeal squamous cell carcinoma: 3.744593620300293
+  2. DB04461: Kaempferol (平均得分: 3.1833)
+    - nasopharyngeal carcinoma, susceptibility to: 4.414408206939697
+    - nasopharyngeal carcinoma: 4.558927536010742
+    - juvenile nasopharyngeal angiofibroma (disease): 1.5372133255004883
+    - nasopharyngeal diphtheria: 1.8854928016662598
+    - nasopharyngeal type undifferentiated carcinoma: 3.559091329574585
+    - nasopharyngeal disease: 2.72298526763916
+    - nasopharyngeal neoplasm: 2.0213921070098877
+    - nasopharyngeal squamous cell carcinoma: 4.76699686050415
+  3. DB04703: Hesperidin (平均得分: 2.9717)
+    - nasopharyngeal carcinoma: 3.564507484436035
+    - nasopharyngeal neoplasm: 2.378939390182495
+  4. DB04495: Fisetin (平均得分: 2.9218)
+    - nasopharyngeal type undifferentiated carcinoma: 2.9217638969421387
