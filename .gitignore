@@ -1,0 +1,137 @@
+# ===========================================
+# TCM Immuno-AntiTumor Screening
+# .gitignore - For GitHub Release
+# ===========================================
+
+# --- Personal / Sensitive ---
+**/Microsoft Edge 密码.csv
+**/*密码*
+**/password*
+*_chat.txt
+**/chat_log.txt
+**/试验记录.zip
+**/个人*
+**/private*
+
+# --- Q&A Prep, Lecture Notes (现场提问/讲座准备) ---
+试验记录/
+
+# --- Copyrighted WeChat Public Account Articles ---
+安捷伦液质联用/微信公众号下载/
+在研中/AI编程实验室/
+**/微信公众号下载/
+
+# --- Personal Images / Screenshots (无法确认内容的个人图片) ---
+**/Snipaste_*
+**/微信图片_*
+**/exported_image.png
+
+# --- Unnamed numbered images (来源不明的编号图片) ---
+**/0.png
+**/0 (1).png
+**/0 (2).png
+**/0 (3).png
+**/0 (4).png
+**/0 (5).png
+**/0 (6).png
+**/0 (7).png
+
+# --- Binary Documents (may contain metadata) ---
+*.pdf
+*.pptx
+*.potx
+*.docx
+*.doc
+*.xlsx
+*.xls
+*.ppt
+
+# --- Data files ---
+*.parquet
+*.feather
+
+# --- Archives ---
+*.zip
+*.rar
+*.7z
+*.tar.gz
+*.tgz
+*.gz
+*.bz2
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+*.egg
+dist/
+build/
+.eggs/
+*.pyc
+
+# --- Virtual Environments ---
+venv/
+.venv/
+*/biomni_env/
+*/env/
+
+# --- Jupyter Notebooks ---
+.ipynb_checkpoints/
+
+# --- IDE / Editor ---
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.sublime-*
+*.sublime-workspace
+
+# --- OS ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# --- Logs & Temp ---
+*.log
+*.tmp
+*.temp
+
+# --- Environment Variables ---
+.env
+.env.*
+
+# --- Data Science / ML models ---
+*.pkl
+*.npy
+*.npz
+*.h5
+*.hdf5
+*.mat
+*.sav
+*.joblib
+*.pt
+*.pth
+*.onnx
+
+# --- Media ---
+*.mp4
+*.avi
+*.mov
+*.wmv
+*.flv
+*.iso
+
+# --- Large Generated / Cache ---
+*.pkl
+*.pickle
+
+# --- Node / JS ---
+node_modules/
