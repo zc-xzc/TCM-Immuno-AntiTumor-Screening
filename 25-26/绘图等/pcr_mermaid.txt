@@ -1,0 +1,139 @@
+graph TD
+    %% 整体样式优化 - 更大字体、更好配色、圆角设计
+    classDef mainHeader fill:#E6F0FF,stroke:#0056b3,stroke-width:3px,color:#003366,font-weight:bold,font-size:20px,rx:10px,ry:10px;
+    classDef moduleHeader fill:#f0f7ff,stroke:#4a90e2,stroke-width:2px,color:#004a99,font-weight:bold,font-size:17px,rx:8px,ry:8px;
+    classDef contentBox fill:#ffffff,stroke:#cccccc,stroke-width:1px,color:#333333,font-size:15px,rx:6px,ry:6px;
+    classDef subContentBox fill:#fafafa,stroke:#e0e0e0,stroke-width:1px,color:#555555,font-size:14px,stroke-dasharray:5 5,rx:5px,ry:5px;
+
+    %% 主标题
+    Title[qPCR技术在中药免疫活性化合物<br/>高通量筛选中的整体技术路线图]:::mainHeader
+    Title -.-> M1_Container
+
+    %% --- 模块1: 研究背景与需求 ---
+    subgraph M1_Container ["1. 研究背景与需求"]
+        M1_Background[核心驱动力]:::moduleHeader
+        M1_C1["中药特点：<br/>多成分、多靶点、低毒副作用<br/>[cite: 20]"]:::contentBox
+        M1_C2["传统痛点：<br/>筛选效率低、成本高，制约产业化<br/>[cite: 20]"]:::contentBox
+        M1_C3["迫切需求：<br/>建立免疫活性化合物快速筛选模型<br/>[cite: 20]"]:::contentBox
+        M1_C4["技术选择：<br/>qPCR (高灵敏度、高特异性、高通量)<br/>[cite: 21]"]:::contentBox
+
+        M1_Background --> M1_C1
+        M1_C1 --> M1_C2
+        M1_C2 --> M1_C3
+        M1_C3 --> M1_C4
+    end
+    M1_Container -.-> M2_Container
+
+    %% --- 模块2: qPCR技术基础 ---
+    subgraph M2_Container ["2. qPCR技术基础"]
+        M2_Basis[核心技术支撑]:::moduleHeader
+        M2_Principle["基本原理：<br/>荧光信号实时监测 + Ct值定量分析<br/>[cite: 25]"]:::contentBox
+        
+        subgraph M2_Types_Sub [核心类型与革新]
+            M2_T1["检测方法：<br/>染料法(SYBR Green) / 探针法(TaqMan)<br/>[cite: 26]"]:::subContentBox
+            M2_T2["技术革新：<br/>多重qPCR / 数字PCR(ddPCR)<br/>[cite: 29-31]"]:::subContentBox
+            M2_T3["高通量平台：<br/>96/384/1536孔板 + 自动化系统<br/>[cite: 33]"]:::subContentBox
+        end
+
+        M2_Basis --> M2_Principle
+        M2_Principle --> M2_T1
+        M2_T1 --> M2_T2
+        M2_T2 --> M2_T3
+    end
+    M2_Container -.-> M3_Container
+
+    %% --- 模块3: 筛选模型构建 ---
+    subgraph M3_Container ["3. 筛选模型构建与优化"]
+        M3_Construction[模型构建关键环节]:::moduleHeader
+        
+        subgraph M3_Targets ["A. 核心靶点选择"]
+            M3_A1["细胞因子基因：<br/>IL-6, TNF-α, IFN-γ<br/>[cite: 37, 38]"]:::subContentBox
+            M3_A2["免疫受体基因：<br/>TLR4, PD-L1<br/>[cite: 40]"]:::subContentBox
+            M3_A3["信号通路分子：<br/>NF-κB p65, STAT3<br/>[cite: 42]"]:::subContentBox
+            M3_A_Principle["选择原则：<br/>功能明确、特异性高、变化显著<br/>[cite: 43]"]:::subContentBox
+            M3_A1 & M3_A2 & M3_A3 --> M3_A_Principle
+        end
+
+        subgraph M3_Process ["B. 流程优化"]
+            M3_B1["样品前处理：<br/>单体溶解 / 提取物纯化<br/>[cite: 46]"]:::subContentBox
+            M3_B2["RNA提取质控：<br/>保证纯度与完整性(RIN≥7.0)<br/>[cite: 47]"]:::subContentBox
+            M3_B3["反应条件优化：<br/>逆转录效率 / 引物浓度 / 退火温度<br/>[cite: 49, 51]"]:::subContentBox
+            M3_B1 --> M3_B2 --> M3_B3
+        end
+
+        subgraph M3_Data ["C. 数据标准化"]
+            M3_C1["内参选择：<br/>稳定表达基因(GAPDH, β-actin)<br/>[cite: 53]"]:::subContentBox
+            M3_C2["分析方法：<br/>相对定量法(ΔΔCt法)<br/>[cite: 54]"]:::subContentBox
+            M3_C1 --> M3_C2
+        end
+
+        M3_Construction --> M3_Targets
+        M3_Construction --> M3_Process
+        M3_Construction --> M3_Data
+    end
+    M3_Container -.-> M4_Container
+
+    %% --- 模块4: 核心应用场景 ---
+    subgraph M4_Container ["4. 核心应用场景"]
+        M4_Applications[筛选与机制研究]:::moduleHeader
+        
+        subgraph M4_Objects [筛选对象实例]
+            M4_O1["中药单体：<br/>大黄素↑TLR4/NF-κB; 苦参碱↓PD-L1<br/>[cite: 61, 62]"]:::subContentBox
+            M4_O2["提取物/复方：<br/>黄芪提取物激活巨噬细胞<br/>玉屏风散调控JAK-STAT<br/>[cite: 66, 67]"]:::subContentBox
+        end
+        
+        subgraph M4_Goals [核心应用目标]
+            M4_G1["活性化合物发现：<br/>快速判断免疫激活/调节活性<br/>[cite: 56, 68]"]:::subContentBox
+            M4_G2["作用机制初探：<br/>通过信号分子表达变化推断机制<br/>[cite: 57, 71]"]:::subContentBox
+        end
+
+        M4_Applications --> M4_Objects
+        M4_Objects --> M4_Goals
+    end
+    M4_Container -.-> M5_Container
+
+    %% --- 模块5: 挑战与解决策略 ---
+    subgraph M5_Container ["5. 面临挑战与解决策略"]
+        M5_Challenges[关键瓶颈与对策]:::moduleHeader
+        
+        subgraph M5_Pair1 ["挑战一：基质干扰"]
+            M5_C1["挑战：中药多糖、鞣质抑制<br/>RNA提取及酶活性<br/>[cite: 75]"]:::contentBox
+            M5_S1["策略：样品纯化 / 优化缓冲液<br/>添加BSA消除干扰<br/>[cite: 76]"]:::contentBox
+            M5_C1 -.-> M5_S1
+        end
+        
+        subgraph M5_Pair2 ["挑战二：靶点局限"]
+            M5_C2["挑战：仅依赖已知靶点可能<br/>漏筛潜在活性物<br/>[cite: 78]"]:::contentBox
+            M5_S2["策略：RNA-seq筛选新靶点<br/>构建多通路模型<br/>生物信息学预测<br/>[cite: 79]"]:::contentBox
+            M5_C2 -.-> M5_S2
+        end
+        
+        subgraph M5_Pair3 ["挑战三：标准化不足"]
+            M5_C3["挑战：流程和数据缺乏<br/>统一标准，重复性受限<br/>[cite: 81]"]:::contentBox
+            M5_S3["策略：遵循MIQE指南<br/>采用自动化流程<br/>建立严格质控体系<br/>[cite: 82]"]:::contentBox
+            M5_C3 -.-> M5_S3
+        end
+
+        M5_Challenges --> M5_Pair1
+        M5_Challenges --> M5_Pair2
+        M5_Challenges --> M5_Pair3
+    end
+    M5_Container -.-> M6_Container
+
+    %% --- 模块6: 未来展望 ---
+    subgraph M6_Container ["6. 未来展望"]
+        M6_Outlook[技术融合与发展趋势]:::moduleHeader
+        
+        subgraph M6_Convergence [前沿技术融合]
+            M6_T1["+ 微流控技术：<br/>微型化、自动化、集成化平台<br/>[cite: 86]"]:::subContentBox
+            M6_T2["+ 单细胞测序：<br/>揭示免疫细胞亚群异质性<br/>[cite: 88]"]:::subContentBox
+            M6_T3["+ 人工智能(AI)：<br/>数据挖掘与构效关系预测<br/>[cite: 90]"]:::subContentBox
+        end
+
+        M6_Trend["发展趋势：<br/>高特异性、高通量、智能化<br/>多靶点一体化平台<br/>[cite: 92, 94]"]:::contentBox
+        M6_Goal["最终目标：<br/>为中药现代化和创新药物研发<br/>提供强有力支撑<br/>[cite: 94]"]:::mainHeader
+
+        M6_Outlook --> M6_Convergence
+        M6_Convergence --> M6_Trend
+        M6_Trend --> M6_Goal
+    end
