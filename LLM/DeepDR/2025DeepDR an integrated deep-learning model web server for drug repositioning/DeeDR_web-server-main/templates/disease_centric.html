@@ -1,0 +1,399 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>以疾病为中心的DeepDR</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+        
+        header h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        
+        .back-link {
+            color: #3498db;
+            text-decoration: none;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        .form-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        .form-group select,
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .btn-reset {
+            background-color: #95a5a6;
+        }
+        
+        .btn-reset:hover {
+            background-color: #7f8c8d;
+        }
+        
+        .results-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+            display: none;
+        }
+        
+        .results-container.show {
+            display: block;
+        }
+        
+        .results-header {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .results-header h2 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .results-header p {
+            color: #666;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        th {
+            background-color: #f9f9f9;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .drug-name {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        .drug-name:hover {
+            text-decoration: underline;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            color: #3498db;
+        }
+        
+        .loading.show {
+            display: block;
+        }
+        
+        .disease-list {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .disease-list h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        
+        .disease-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .disease-tag {
+            background-color: #e3f2fd;
+            color: #1976d2;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .disease-tag:hover {
+            background-color: #bbdefb;
+        }
+        
+        .visualize-btn {
+            background-color: #2ecc71;
+            margin-top: 20px;
+        }
+        
+        .visualize-btn:hover {
+            background-color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>以疾病为中心的DeepDR</h1>
+            <p>针对特定疾病推荐潜在的治疗药物</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <a href="/" class="back-link">← 返回首页</a>
+        
+        <div class="disease-list">
+            <h2>热门疾病</h2>
+            <div class="disease-tags">
+                {% for disease_id, disease_name in diseases %}
+                <span class="disease-tag" data-disease-id="{{ disease_id }}">{{ disease_name }}</span>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <div class="form-container">
+            <h2>药物预测</h2>
+            <form id="predict-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="model">选择模型：</label>
+                        <select id="model" name="model">
+                            {% for model in models %}
+                            <option value="{{ model }}">{{ model }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="disease_id">疾病ID/名称：</label>
+                        <input type="text" id="disease_id" name="disease_id" placeholder="例如：C0342731 或 甲羟戊酸激酶缺乏" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="drugs_top">推荐药物数量：</label>
+                        <select id="drugs_top" name="drugs_top">
+                            <option value="10">10</option>
+                            <option value="20" selected>20</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div style="display: flex; gap: 10px; margin-top: 20px;">
+                    <button type="submit" class="btn">预测</button>
+                    <button type="reset" class="btn btn-reset">重置</button>
+                </div>
+            </form>
+        </div>
+        
+        <div class="loading" id="loading">
+            <p>正在预测中，请稍候...</p>
+        </div>
+        
+        <div class="results-container" id="results-container">
+            <div class="results-header">
+                <h2>预测结果</h2>
+                <p id="results-info"></p>
+            </div>
+            
+            <table id="results-table">
+                <thead>
+                    <tr>
+                        <th>排名</th>
+                        <th>药物ID</th>
+                        <th>药物名称</th>
+                        <th>预测分数</th>
+                    </tr>
+                </thead>
+                <tbody id="results-body">
+                </tbody>
+            </table>
+            
+            <button class="btn visualize-btn" id="visualize-btn" style="display: none;">
+                可视化关系路径
+            </button>
+        </div>
+    </div>
+    
+    <script>
+        // 疾病标签点击事件
+        document.querySelectorAll('.disease-tag').forEach(tag => {
+            tag.addEventListener('click', () => {
+                const diseaseId = tag.dataset.diseaseId;
+                document.getElementById('disease_id').value = diseaseId;
+            });
+        });
+        
+        // 表单提交事件
+        document.getElementById('predict-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // 显示加载状态
+            document.getElementById('loading').classList.add('show');
+            document.getElementById('results-container').classList.remove('show');
+            
+            // 获取表单数据
+            const formData = new FormData(e.target);
+            const data = {
+                model: formData.get('model'),
+                disease_id: formData.get('disease_id'),
+                drugs_top: formData.get('drugs_top')
+            };
+            
+            try {
+                // 发送预测请求
+                const response = await fetch('/predict_disease', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                const result = await response.json();
+                
+                if (result.status === 'success') {
+                    // 显示结果
+                    displayResults(result);
+                } else {
+                    alert('预测失败：' + result.message);
+                }
+            } catch (error) {
+                console.error('预测错误：', error);
+                alert('预测失败，请稍后重试');
+            } finally {
+                // 隐藏加载状态
+                document.getElementById('loading').classList.remove('show');
+            }
+        });
+        
+        // 显示预测结果
+        function displayResults(result) {
+            // 更新结果信息
+            document.getElementById('results-info').textContent = 
+                `模型：${result.model} | 疾病：${result.disease_name} (${result.disease_id}) | 推荐药物数：${result.results.length}`;
+            
+            // 清空现有结果
+            const tbody = document.getElementById('results-body');
+            tbody.innerHTML = '';
+            
+            // 添加新结果
+            result.results.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.rank}</td>
+                    <td>${item.drug_id}</td>
+                    <td><a href="/drug_detail/${item.drug_id}" class="drug-name">${item.drug_name}</a></td>
+                    <td>${item.score.toFixed(4)}</td>
+                `;
+                tbody.appendChild(row);
+            });
+            
+            // 显示结果容器
+            document.getElementById('results-container').classList.add('show');
+            
+            // 显示可视化按钮（如果模型支持）
+            const visualizeBtn = document.getElementById('visualize-btn');
+            if (result.model === 'DisKGE') {
+                visualizeBtn.style.display = 'inline-block';
+                visualizeBtn.onclick = () => {
+                    window.location.href = `/visualize_path/${result.model}/${result.disease_id}`;
+                };
+            } else {
+                visualizeBtn.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

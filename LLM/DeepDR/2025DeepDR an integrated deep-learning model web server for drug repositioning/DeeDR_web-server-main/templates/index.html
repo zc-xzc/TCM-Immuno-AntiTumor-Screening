@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepDR Web Server</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .features {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin: 20px;
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-card h2 {
+            color: #3498db;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        
+        .feature-card p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .model-info {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin: 30px 0;
+        }
+        
+        .model-info h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        
+        .model-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .model-item {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .model-item h3 {
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>DeepDR Web Server</h1>
+            <p>基于深度学习的药物重定位集成平台</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="features">
+            <div class="feature-card">
+                <h2>以疾病为中心的DeepDR</h2>
+                <p>针对特定疾病，推荐潜在的治疗药物。支持三种模型选项：基于异构网络的模型、集成异构网络与文本挖掘的模型，以及基于知识图谱的模型。</p>
+                <a href="/disease_centric" class="btn">开始使用</a>
+            </div>
+            
+            <div class="feature-card">
+                <h2>以目标为中心的DeepDR</h2>
+                <p>针对特定蛋白质靶点，推荐潜在的药物。支持四种模型选项：两种基于异构网络，一种基于知识图谱，以及结合知识图谱与分子图的协同模型。</p>
+                <a href="/target_centric" class="btn">开始使用</a>
+            </div>
+        </div>
+        
+        <div class="model-info">
+            <h2>集成模型</h2>
+            <div class="model-grid">
+                <div class="model-item">
+                    <h3>DeepDR</h3>
+                    <p>基于异构网络的深度学习方法，整合10个网络进行药物定位。</p>
+                </div>
+                <div class="model-item">
+                    <h3>HeTDR</h3>
+                    <p>利用异构网络和文本挖掘技术，整合药物特征与生物医学语料库中的疾病特征。</p>
+                </div>
+                <div class="model-item">
+                    <h3>DisKGE</h3>
+                    <p>基于知识图谱的药物重定位模型，使用RotatE算法学习实体表示。</p>
+                </div>
+                <div class="model-item">
+                    <h3>DeepDTnet</h3>
+                    <p>深度学习方法，在异质药物-基因-疾病网络中识别新靶点和药物重新定位。</p>
+                </div>
+                <div class="model-item">
+                    <h3>AOPEDF</h3>
+                    <p>基于网络的计算框架，采用任意阶接近度嵌入的深森林方法预测药物与靶点相互作用。</p>
+                </div>
+                <div class="model-item">
+                    <h3>TarKGE</h3>
+                    <p>基于知识图谱的靶点导向药物推荐模型。</p>
+                </div>
+                <div class="model-item">
+                    <h3>KG-MTL</h3>
+                    <p>大规模知识图谱增强的多任务学习模型，协同提取知识图谱和分子图的特征。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 DeepDR Web Server. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
