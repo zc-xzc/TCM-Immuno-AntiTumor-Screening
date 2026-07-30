@@ -1,9 +1,0 @@
-﻿药物名称,DrugBank ID,鼻咽癌预测得分,关联免疫通路证据,数据来源记录
-Genistein,DB01645,无特定疾病预测数据,无,"txgnn_prediction.pkl, txgnn_name_mapping.pkl"
-Resveratrol,DB02709,无特定疾病预测数据,无,"txgnn_prediction.pkl, txgnn_name_mapping.pkl"
-Curcumin,DB00291,无特定疾病预测数据,无,"txgnn_prediction.pkl, txgnn_name_mapping.pkl"
-Quercetin,DB04224,无特定疾病预测数据,无,"txgnn_prediction.pkl, txgnn_name_mapping.pkl"
-Glycyrrhizic acid,DB13751,无特定疾病预测数据,无,"txgnn_prediction.pkl, txgnn_name_mapping.pkl"
-Arbutin,DB11348,无特定疾病预测数据,无,"txgnn_prediction.pkl, txgnn_name_mapping.pkl"
-Rhein,DB13293,无特定疾病预测数据,无,"txgnn_prediction.pkl, txgnn_name_mapping.pkl"
-Capsaicin,DB06774,无特定疾病预测数据,无,"txgnn_prediction.pkl, txgnn_name_mapping.pkl"
