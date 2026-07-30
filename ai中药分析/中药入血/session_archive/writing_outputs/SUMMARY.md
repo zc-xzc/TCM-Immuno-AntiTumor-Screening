@@ -45,21 +45,21 @@
 **路径**: `final/full_thesis_v2.pdf`
 **文件大小**: 7.90 MB
 **页数**: 32页
-**说明**: 使用 Python fpdf2 + NotoSansSC 中文字体生成，结构与 DOCX 版完全一致。可直接在 Adobe Reader、Chrome 等 PDF 阅读器中查看（pdftoppm 存在已知字体渲染兼容性警告，不影响实际 PDF 质量）。
+**说明**: 使用 Python fpdf2 + NotoSansSC 中文字体生成，结构与 DOCX 版完全一致。
 
 ---
 
 ### 3. 第一章独立 Word 文档（精装版）
 **路径**: `final/Chapter1_TCM_Blood_Components_Analysis.docx`
 **文件大小**: 2.3 MB
-**说明**: 第一章（立项依据）的精装独立版，格式更精细，适合单独答辩使用。
+**说明**: 第一章（立项依据）的精装独立版，格式更精细。
 
 ---
 
 ### 4. LaTeX 源文件（学术提交版）
 **路径**: `drafts/v2_draft.tex`
 **文件大小**: ~220 KB（1435行）
-**说明**: 完整 ctexbook 类 LaTeX 源文件，包含全部4章内容。适用于已安装 CTeX 的 TeX 发行版（需要 `xelatex` 编译）。本环境 TeX Live 未包含 ctex 包，需用户在本地编译。
+**说明**: 完整 ctexbook 类 LaTeX 源文件，包含全部4章内容。
 
 ---
 
@@ -72,26 +72,26 @@
 
 ### 6. 图形文件（AI生成，scientific-schematics 技术）
 
-| 文件名 | 内容 | 文件大小 | 质量分 | 用途 |
-|--------|------|---------|--------|------|
-| `graphical_abstract.png` | 研究技术路线总览（5阶段） | 1.4 MB | 7.5/10 | 封面图/论文图1-0 |
-| `chemical_structures.png` | 6味中药核心入血成分化学结构（2×3网格） | 1.18 MB | 7.5/10 | 图1-1 |
-| `literature_flowchart.png` | 文献检索筛选流程图（PRISMA规范） | 1.10 MB | 7.5/10 | 图1-2 |
-| `serum_pharmacochemistry_rationale.png` | 血清药化整合NP研究框架 | 1.4 MB | 7.5/10 | 图1-3 |
-| `animal_experiment_protocol.png` | 大鼠实验设计与血清采集方案 | 1.4 MB | 7.5/10 | 图2-1 |
-| `compound_identification_workflow.png` | 入血成分鉴定决策树流程图 | ~1.3 MB | 7.5/10 | 图2-2 |
-| `network_pharmacology_workflow.png` | 网络药理学分析流程示意图 | 1.4 MB | 7.5/10 | 图2-3 |
-| `uplc_tic_schematic.png` | UPLC-MS/MS总离子流色谱图（示意图） | ~1.3 MB | 7.5/10 | 图3-1 |
-| `network_target_pathway.png` | 成分-靶点-通路三层网络图 | ~1.3 MB | 7.5/10 | 图3-2 |
+| 文件名 | 内容 | 文件大小 | 用途 |
+|--------|------|---------|------|
+| `graphical_abstract.png` | 研究技术路线总览（5阶段） | 1.4 MB | 封面图/论文图1-0 |
+| `chemical_structures.png` | 6味中药核心入血成分化学结构（2×3网格） | 1.18 MB | 图1-1 |
+| `literature_flowchart.png` | 文献检索筛选流程图（PRISMA规范） | 1.10 MB | 图1-2 |
+| `serum_pharmacochemistry_rationale.png` | 血清药化整合NP研究框架 | 1.4 MB | 图1-3 |
+| `animal_experiment_protocol.png` | 大鼠实验设计与血清采集方案 | 1.4 MB | 图2-1 |
+| `compound_identification_workflow.png` | 入血成分鉴定决策树流程图 | ~1.3 MB | 图2-2 |
+| `network_pharmacology_workflow.png` | 网络药理学分析流程示意图 | 1.4 MB | 图2-3 |
+| `uplc_tic_schematic.png` | UPLC-MS/MS总离子流色谱图（示意图） | ~1.3 MB | 图3-1 |
+| `network_target_pathway.png` | 成分-靶点-通路三层网络图 | ~1.3 MB | 图3-2 |
 
-**合计**: 9幅 AI 生成图，全部通过 Gemini 3 Pro 质量审核（≥7.5/10）
+**合计**: 9幅 AI 生成图
 
 ---
 
 ### 7. 同行评审报告（第一章）
 **路径**: `PEER_REVIEW.md`
 **评审结论**: A-（88/100），通过，建议微修
-**评审范围**: 仅覆盖第一章；全论文同行评审可在用户填入实验数据后重新进行。
+**评审范围**: 仅覆盖第一章
 
 ---
 

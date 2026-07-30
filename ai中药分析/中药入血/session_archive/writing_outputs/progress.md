@@ -7,13 +7,13 @@
 
 ## Status Log
 - [09:47:50] STARTED: Project initialization
-- [09:47:51] CREATED: Directory structure (drafts/, figures/, final/, references/, data/, sources/)
+- [09:47:51] CREATED: Directory structure
 - [09:47:52] IN_PROGRESS: Literature research phase
 
 ## Tasks
 - [x] Directory setup
 - [ ] Literature research (6 herbs + general)
-- [ ] Figure generation (chemical structures + flowchart)
+- [ ] Figure generation
 - [ ] Content writing (all sections)
 - [ ] Word document creation
 - [ ] Markdown backup
